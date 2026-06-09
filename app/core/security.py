@@ -8,3 +8,9 @@ class Security:
 
   async def get_password_hash(self, password: str) -> str:
     return await run_in_threadpool(self.hasher.hash, password)
+
+  async def verify_password(self, password: str, hashed_password: str) -> str:
+    return await run_in_threadpool(self.hasher.verify, password, hashed_password)
+  
+  async def encode_jwt(self, to_encode: dict, secret_key: str, algorithm: str) -> str:
+    return await run_in_threadpool(jwt.encode, to_encode, secret_key, algorithm)
