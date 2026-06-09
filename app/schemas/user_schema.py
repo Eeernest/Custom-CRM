@@ -31,3 +31,6 @@ class UserCreate(UserBase):
       raise PasswordNumberException()
     
     return v
+  
+class UserRead(UserBase):
+  id: int
