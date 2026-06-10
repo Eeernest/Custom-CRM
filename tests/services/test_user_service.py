@@ -45,7 +45,7 @@ async def test_create_account_password_too_short_exception(user_data, mock_secur
   mock_db_repo.get_by_username.return_value = None
   mock_db_repo.get_by_email.return_value = None
 
-  mock_security.get_password_hash.side_effect = PasswordTooShortException
+  mock_security.get_password_hash.side_effect = PasswordTooShortException()
 
   with pytest.raises(PasswordTooShortException) as exc:
     await service.create_account(user_data)
@@ -58,7 +58,7 @@ async def test_create_account_password_number_exception(user_data, mock_security
   mock_db_repo.get_by_username.return_value = None
   mock_db_repo.get_by_email.return_value = None
 
-  mock_security.get_password_hash.side_effect = PasswordNumberException
+  mock_security.get_password_hash.side_effect = PasswordNumberException()
 
   with pytest.raises(PasswordNumberException) as exc:
     await service.create_account(user_data)
@@ -71,7 +71,7 @@ async def test_create_account_password_no_uppercase_exception(user_data, mock_se
   mock_db_repo.get_by_username.return_value = None
   mock_db_repo.get_by_email.return_value = None
 
-  mock_security.get_password_hash.side_effect = PasswordNoUppercaseException
+  mock_security.get_password_hash.side_effect = PasswordNoUppercaseException()
 
   with pytest.raises(PasswordNoUppercaseException) as exc:
     await service.create_account(user_data)
