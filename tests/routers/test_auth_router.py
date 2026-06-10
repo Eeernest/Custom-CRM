@@ -16,7 +16,7 @@ async def test_login_success(data_payload, token, mock_service, mock_client):
 
 @pytest.fixture()
 async def test_login_username_failure(mock_service, mock_client):
-  mock_service.login.side_effect = InvalidCredentialsException
+  mock_service.login.side_effect = InvalidCredentialsException()
 
   result = await mock_client.post("/token", data={"username": "user2", "password": "Password123"})
   data = result.json()
