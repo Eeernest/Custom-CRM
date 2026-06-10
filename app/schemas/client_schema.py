@@ -12,3 +12,6 @@ class ClientBase(BaseModel):
   
 class ClientCreate(ClientBase):
   notes: str | None = None
+
+class ClientRead(ClientBase):
+  id: int
