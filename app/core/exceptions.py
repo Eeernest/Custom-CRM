@@ -22,6 +22,10 @@ class EmailUnavailableException(AppBaseException):
   status_code = 409
   detail = "Email is already in use"
 
+class PhoneNumberUnavailableException(AppBaseException):
+  status_code = 409
+  detail = "Phone number is already in use"
+
 class InvalidCredentialsException(AppBaseException):
   status_code = 401
   detail = "Incorrect username or password"
