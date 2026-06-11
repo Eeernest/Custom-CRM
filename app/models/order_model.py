@@ -26,7 +26,7 @@ class Order(Base):
   client_id = Column(Integer, ForeignKey("clients.id"), nullable=False, index=True)
   delivery_address = Column(String(200), nullable=False)
   deal_size = Column(Numeric(10, 2), default=0.00)
-  esimated_hours = Column(Numeric(6, 2), default=0.00, nullable=False)
+  estimated_hours = Column(Numeric(6, 2), default=0.00, nullable=False)
   actual_hours = Column(Numeric(6, 2), default=00)
   created_at = Column(DateTime, default=datetime.utcnow)
   updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
