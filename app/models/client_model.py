@@ -1,6 +1,7 @@
 from datetime import datetime
 
-from sqlalchemy import Column, Integer, String, Text, DateTime
+from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean
+from sqlalchemy.orm import relationship
 
 from app.db.database import Base
 
@@ -15,3 +16,6 @@ class Client(Base):
   notes = Column(Text)
   created_at = Column(DateTime, default=datetime.utcnow)
   updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+  is_deleted = Column(Boolean, default=False, nullable=False)
+
+  orders = relationship("Order", back_populates="client")
